@@ -1,0 +1,15 @@
+<h1>Show a Person</h1>
+
+<%= link_to "index", people_path %>
+
+<h3><%= @person.name %></h3>
+<ul>
+    <li>Gender: <%= @person.gender %></li>
+    <li>Hair Color:<%= @person.hair_color %></li>
+    <li>Eye Color: <%= @person.eye_color %></li>
+    <li>Age: <%= @person.age %></li>
+    <li>Alive: <%= @person.alive %></li>
+</ul>
+
+<%= link_to "edit", edit_person_path(@person) %>
+<%= link_to "delete", @person, method: :delete%>
