@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root "static_pages#home"
 
-  resources :people
+  resources :people do
+    resources :performances
+  end
 end

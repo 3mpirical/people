@@ -1,8 +1,8 @@
 <h1>Index Of People</h1>
 
-<%= link_to "new", new_person_path() %>
+<%= link_to "New Queen", new_person_path() %>
 
 <% @people.each() do |item| %>
     <h3><%= item.name %></h3>
-    <%= link_to "show", person_path(item) %>
+    <%= link_to "see more", person_path(item) %>
 <% end %>
