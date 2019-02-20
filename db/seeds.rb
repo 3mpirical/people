@@ -8,6 +8,7 @@
 
 require "faker"
 
+Performance.destroy_all()
 Person.destroy_all()
 
 for i in (0..19)
@@ -20,6 +21,18 @@ for i in (0..19)
         alive: Faker::Boolean.boolean() ,
     )
 end
+
+Person.all().each() {|queen|
+    for i in (0..3)
+        Performance.create(
+            person_id: queen.id, 
+            location: Faker::Games::SuperSmashBros.stage,
+            date: Faker::Date.forward(35),
+            time: "When I Start!",
+        )
+    end
+}
+
 puts "__________ QUEENS CREATED __________"
 Person.all().each_with_index() {|queen, index|
     puts "_____Queen: #{index}_____"
@@ -29,4 +42,11 @@ Person.all().each_with_index() {|queen, index|
     puts "Eye Color: #{queen.eye_color}"
     puts "Gender: #{queen.gender}"
     puts "Alive: #{queen.alive}"
+    puts ""
+    queen.performances.each() {|performance|
+        puts "  Performance:"
+        puts "  Location: #{performance.location}"
+        puts "  Date: #{performance.date}"
+        puts ""
+    }
 }
